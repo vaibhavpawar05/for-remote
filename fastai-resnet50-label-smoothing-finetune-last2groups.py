@@ -51,6 +51,12 @@ ckpt_path = '/dbfs/tmp/vaibhav/fastai-resnet50-label-smoothing/models/fine_tunin
 
 learn = learn.load(ckpt_path, device=device)
 
+print('loaded checkpoint from', ckpt)
+
 learn.freeze_to(-2)
+
+learn.model = learn.model.cuda()
+
+print(learn.summary())
 
 learn.fit_one_cycle(10, lr_max=slice(0.5e-6,1e-5), cbs=[SaveModelCallback(fname='finetuning_last2groups', every_epoch=True, monitor='accuracy')])
