@@ -51,7 +51,7 @@ ckpt_path = '/dbfs/tmp/vaibhav/fastai-resnet50-label-smoothing/models/fine_tunin
 
 learn = learn.load(ckpt_path, device=device)
 
-print('loaded checkpoint from', ckpt)
+print('loaded checkpoint from', ckpt_path)
 
 learn.freeze_to(-2)
 
