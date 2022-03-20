@@ -47,7 +47,7 @@ model_path = Path('/dbfs/tmp/vaibhav/fastai-resnet50-label-smoothing')
 learn = cnn_learner(train_dls, resnet50, loss_func=LabelSmoothingCrossEntropy(), 
                     path=model_path, metrics=[error_rate, accuracy, Precision(), Recall()])
 
-ckpt_path = '/dbfs/tmp/vaibhav/fastai-resnet50-label-smoothing/models/fine_tuning_last_few_layers_6.pth'
+ckpt_path = '/dbfs/tmp/vaibhav/fastai-resnet50-label-smoothing/models/fine_tuning_last_few_layers_6'
 
 learn = learn.load(ckpt_path, device=device)
 
